@@ -1,0 +1,54 @@
+﻿@model AppointmentScheduling.Models.ViewModels.LoginVM
+
+
+
+<div class="row">
+    <h4 class="p-5 text-center">Use your registered email and password to login</h4>
+    <div class="col-md-7">
+        <section id="loginForm">
+            <form id="account" method="post" asp-action="Login" asp-controller="Account">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group row">
+                    <label asp-for="Email" class="col-md-2"></label>
+                    <div class="col-md-6">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row pt-3">
+                    <label asp-for="Password" class="col-md-2"></label>
+                    <div class="col-md-6">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 offset-2 checkbox">
+                        <label asp-for="RememberMe" class="pr-4 pl-0">
+                            <input asp-for="RememberMe"/>
+                        </label>
+                        Remember me?
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-2">
+                        <input type="submit" value="Log in" class="btn btn-success" />
+                    </div>
+                </div>
+                <p class="col-md-6 offset-md-2">
+                    <a asp-action="Register">Sign Up</a>
+                </p>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-5 pl-0">
+        <img src="~/image/reg5.jpg"/>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        Html.RenderPartial("_ValidationScriptsPartial");
+    }
+}
